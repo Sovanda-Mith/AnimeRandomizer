@@ -17,7 +17,7 @@ defineProps<{
                 <img
                     src="../Assets/linkedin_profile_image.png"
                     alt="logo"
-                    class="w-20 h-20 md:w-30 md:h-30 lg:w-40 lg:h-40"
+                    class="sm:w-20 sm:h-20 md:w-30 md:h-30 lg:w-40 lg:h-40"
                 />
                 <nav
                     v-if="canLogin"
@@ -47,13 +47,31 @@ defineProps<{
                 <div
                     class="text-lg md:text-2xl lg:text-4xl text-custom-quaternary font-bold"
                 >
-                    Complete a form and we'll recommend some anime for you to
+                    Complete a form and we'll recommend some animes for you to
                     try.
                 </div>
             </main>
-            <footer
-                class="py-2 px-2 text-xl md:text-2xl lg:text-4xl flex justify-end space-x-4 md:space-x-4 lg:space-x-6 font-semibold"
-            ></footer>
+            <div
+                class="text-center font-semibold text-2xl py-2 shadow-md animate-bounce"
+            >
+                Scroll Down👇
+            </div>
+        </div>
+    </div>
+    <div class="bg-custom-quaternary flex items-center">
+        <img
+            src="../Assets/ubel.png"
+            alt="Ubel From Frieren"
+            class="sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80"
+        />
+        <div class="p-4 text-2xl space-y-3 text-custom-primary font-semibold">
+            <p>
+                Have never watch any animes before? We can help you get started.
+            </p>
+            <p>
+                Have already watched too many animes? We can recommend some new
+                ones.
+            </p>
         </div>
     </div>
 </template>
