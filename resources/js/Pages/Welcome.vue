@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { Head, Link } from "@inertiajs/vue3";
-const showingGender = ref<boolean>();
 
 defineProps<{
     canLogin?: boolean;
     canRegister?: boolean;
 }>();
+
+const showingGender = ref<boolean>(false);
+
+const handleGenderChange = (event: Event) => {
+    const input = event.target as HTMLInputElement;
+    showingGender.value = input.id === "yes" && input.checked;
+};
 </script>
 
 <template>
@@ -25,8 +31,6 @@ defineProps<{
                     v-if="canLogin"
                     class="flex justify-end text-xl md:text-2xl lg:text-4xl space-x-4 md:space-x-4 lg:space-x-6 mr-2"
                 >
-                    <Link :href="route('about')">About</Link>
-                    <Link :href="route('contact')">Contact</Link>
                     <Link
                         v-if="$page.props.auth.user"
                         :href="route('dashboard')"
@@ -80,13 +84,19 @@ defineProps<{
     </div>
     <div>
         <div
-            class="font-semibold sm:text-xl md:text-3xl lg:text-4xl text-custom-primary"
+            class="px-2 font-semibold sm:text-xl md:text-3xl lg:text-4xl text-custom-primary"
         >
             Form Example
         </div>
+        <div
+            class="px-2 font-semibold sm:text-sm md:text-md lg:text-lg text-red-500"
+        >
+            You don't have to complete this form, it is just a sample of what
+            you're going to complete
+        </div>
         <form class="px-4">
             <div class="md:text-2xl lg:text-4xl">
-                Select your favourite type of genre
+                1. Select your favourite type of genre
             </div>
             <div class="grid md:grid-cols-4 lg:grid-cols-6 space-y-2">
                 <div>
@@ -201,21 +211,42 @@ defineProps<{
                 </div>
             </div>
             <div class="md:text-2xl lg:text-4xl">
-                Do you have a preference with the gender of the protagonist?
+                2. Do you have a preference with the gender of the protagonist?
             </div>
-            <div>
-                <input type="radio" id="yes" :value="true" name="yes-no" />
+            <div class="space-x-2">
+                <input
+                    type="radio"
+                    id="yes"
+                    name="yes-no"
+                    @change="handleGenderChange"
+                />
                 <label for="yes">Yes</label>
             </div>
-            <div>
-                <input type="radio" id="no" name="yes-no" />
+            <div class="space-x-2">
+                <input
+                    type="radio"
+                    id="no"
+                    name="yes-no"
+                    @change="handleGenderChange"
+                />
                 <label for="no">No</label>
             </div>
-            <div>
+            <div v-if="showingGender" class="space-x-2">
                 <label for="gender"
-                    >Input the gender of protagonist that you want?</label
+                    >Input the gender of protagonist that you prefer?</label
                 >
                 <input type="text" id="gender" />
+            </div>
+            <div class="md:text-2xl lg:text-4xl">
+                3. Would you give a chance to older animes with old art style?
+            </div>
+            <div class="space-x-2">
+                <input type="radio" id="old_yes" name="old" />
+                <label for="old_yes">Yes</label>
+            </div>
+            <div class="space-x-2">
+                <input type="radio" id="old_no" name="old" />
+                <label for="old_no">No</label>
             </div>
         </form>
     </div>
