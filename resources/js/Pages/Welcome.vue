@@ -88,12 +88,12 @@ const handleGenderChange = (event: Event) => {
         >
             Form Example
         </div>
-        <div
+        <p
             class="px-2 font-semibold sm:text-sm md:text-md lg:text-lg text-red-500"
         >
             You don't have to complete this form, it is just a sample of what
             you're going to complete
-        </div>
+        </p>
         <form class="px-4">
             <div class="md:text-2xl lg:text-4xl">
                 1. Select your favourite type of genre
@@ -248,6 +248,13 @@ const handleGenderChange = (event: Event) => {
                 <input type="radio" id="old_no" name="old" />
                 <label for="old_no">No</label>
             </div>
+            <div>That's all we need to give you a recommendation.</div>
         </form>
     </div>
+    <div class="px-2 md:text-3xl lg:text-4xl font-bold">
+        Recommendation Sample
+    </div>
+    <p class="sm:text-sm md:text-md lg:text-lg px-2 text-green-500 font-semibold">
+        Here should be the result after you completed the form
+    </p>
 </template>
