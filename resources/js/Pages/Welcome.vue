@@ -82,7 +82,7 @@ const handleGenderChange = (event: Event) => {
             </p>
         </div>
     </div>
-    <div>
+    <section>
         <div
             class="px-2 font-semibold sm:text-xl md:text-3xl lg:text-4xl text-custom-primary"
         >
@@ -250,11 +250,15 @@ const handleGenderChange = (event: Event) => {
             </div>
             <div>That's all we need to give you a recommendation.</div>
         </form>
-    </div>
-    <div class="px-2 md:text-3xl lg:text-4xl font-bold">
-        Recommendation Sample
-    </div>
-    <p class="sm:text-sm md:text-md lg:text-lg px-2 text-green-500 font-semibold">
-        Here should be the result after you completed the form
-    </p>
+    </section>
+    <section>
+        <div class="px-2 md:text-3xl lg:text-4xl font-bold">
+            Recommendation Sample
+        </div>
+        <p
+            class="sm:text-sm md:text-md lg:text-lg px-2 text-green-500 font-semibold"
+        >
+            Here should be the result after you completed the form
+        </p>
+    </section>
 </template>
