@@ -1,10 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ObjectEmitsOptions, ref } from "vue";
 import { Head, Link } from "@inertiajs/vue3";
 
 defineProps<{
     canLogin?: boolean;
     canRegister?: boolean;
+    animes?: Object;
+    errors?: Object;
 }>();
 
 const showingGender = ref<boolean>(false);
@@ -17,6 +19,8 @@ const handleGenderChange = (event: Event) => {
 
 <template>
     <Head title="Welcome" />
+    <!-- <p v-if="animes">{{ animes }}</p>
+    <p v-else>{{ errors }}</p> -->
     <div
         class="bg-custom-primary dark:text-white min-h-screen flex flex-col font-semibold"
     >
