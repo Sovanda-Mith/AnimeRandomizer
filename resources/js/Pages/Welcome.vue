@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ObjectEmitsOptions, ref } from "vue";
 import { Head, Link } from "@inertiajs/vue3";
+import DisplayAnime from "@/Components/DisplayAnime.vue";
 
 defineProps<{
     canLogin?: boolean;
@@ -264,5 +265,15 @@ const handleGenderChange = (event: Event) => {
         >
             Here should be the result after you completed the form
         </p>
+    </section>
+    <section>
+        <DisplayAnime
+            :animes="{
+                name: 'Naruto',
+                description: 'Hello',
+                image_url:
+                    'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png',
+            }"
+        />
     </section>
 </template>
