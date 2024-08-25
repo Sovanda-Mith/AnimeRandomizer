@@ -269,7 +269,8 @@ const handleGenderChange = (event: Event) => {
     <section>
         <DisplayAnime
             :animes="{
-                name: 'Naruto',
+                id: 1,
+                title: 'Naruto',
                 description: 'Hello',
                 image_url:
                     'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png',
