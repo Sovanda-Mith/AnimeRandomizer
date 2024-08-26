@@ -268,8 +268,8 @@ const handleGenderChange = (event: Event) => {
     </section>
     <section>
         <DisplayAnime
-            :animes="{
-                id: 1,
+            :anime="{
+                mal_url: '#',
                 title: 'Naruto',
                 description: 'Hello',
                 image_url:
