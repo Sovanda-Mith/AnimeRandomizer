@@ -1,7 +1,9 @@
 <template>
     <div>
-        <p class="md:text-3xl lg:text-4xl font-semibold">{{ anime.title }}</p>
-        <p class="md:text-md lg:text-lg">{{ anime.description }}</p>
+        <p class="md:text-3xl lg:text-4xl font-bold">{{ anime.title }}</p>
+        <p class="md:text-md lg:text-lg">
+            {{ anime.description }}
+        </p>
         <a :href="anime.mal_url">
             <img
                 :src="anime.image_url"

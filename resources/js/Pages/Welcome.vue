@@ -269,6 +269,7 @@ const handleGenderChange = (event: Event) => {
     <section>
         <DisplayAnime
             :anime="{
+                id: 1,
                 mal_url: '#',
                 title: 'Naruto',
                 description: 'Hello',
