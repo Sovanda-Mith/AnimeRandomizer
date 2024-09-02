@@ -1,12 +1,32 @@
 <script setup lang="ts">
-import { ObjectEmitsOptions, ref } from "vue";
+import { ObjectEmitsOptions, Reactive, ref } from "vue";
 import { Head, Link } from "@inertiajs/vue3";
 import DisplayAnime from "@/Components/DisplayAnime.vue";
+
+type AnimeProps = {
+    data: Array<DataProps>;
+};
+
+type DataProps = {
+    node: NodeProps;
+    ranking: {
+        rank: number;
+    };
+};
+
+type NodeProps = {
+    id: number;
+    title: string;
+    main_picture: {
+        large: string;
+        medium: string;
+    };
+};
 
 defineProps<{
     canLogin?: boolean;
     canRegister?: boolean;
-    animes?: Object;
+    animes?: AnimeProps;
     errors?: Object;
 }>();
 
@@ -266,15 +286,15 @@ const handleGenderChange = (event: Event) => {
             Here should be the result after you completed the form
         </p>
     </section>
-    <section>
-        <DisplayAnime
-            :anime="{
-                mal_url: '#',
-                title: 'Naruto',
-                description: 'Hello',
-                image_url:
-                    'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png',
-            }"
-        />
+    <section v-if="animes && Object.keys(animes).length" class="grid md:grid-cols-3 lg:grid-cols-4">
+        <div v-for="(item, index) in animes.data" :key="index">
+            <DisplayAnime
+                :anime="{
+                    title: item.node.title,
+                    image_url: item.node.main_picture.medium,
+                    mal_url: `https://myanimelist.net/anime/${item.node.id}`,
+                }"
+            />
+        </div>
     </section>
 </template>
